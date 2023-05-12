@@ -64,24 +64,23 @@ operationButtons.forEach(function(button) {
 })
 
 // This is what happens when the equal sign button is pushed
-function operate(num1, operation, num2,){
-    firstNumber = num1
-    secondNumber = num2
-    operator = operation
-    if(operation === '+'){
-        add(num1,num2)
+function operate(num1, operation, num2){
+    num1 = firstNumber
+    operation = operator
+    num2 = secondNumber
+    if(operator === '+'){
+        console.log(add(firstNumber,secondNumber))
+    } else if(operator === '-'){
+        console.log(subtract(firstNumber,secondNumber))
 
-    } else if(operation === '-'){
-        console.log(subtract(num1,num2))
+    } else if(operator === '*'){
+        console.log(multiply(firstNumber,secondNumber))
 
-    } else if(operation === '*'){
-        multiply(num1,num2)
-
-    } else if(operation === '/'){
-        divide(num1,num2)
+    } else if(operator === '/'){
+        console.log(divide(firstNumber,secondNumber))
 
     } else{
-        return "Error: Invalid Operation"
+        console.log("Error: Invalid Operation")
     }
 }
 
