@@ -24,36 +24,6 @@ let secondNumber
 let operationButtons = document.querySelectorAll('.operations')
 //Selects the div in which the clicked numbers or operations will appear
 let display = document.querySelector('.display')
-
-operationButtons.forEach(function(button) {
-    button.addEventListener('click', function(){
-        //Checks the operation sign within the innerText of each button and assigns the operation to the operator variable which gets added in the display innerText
-        if(button.innerText === '+'){
-            operator = button.innerText
-            display.innerText+=operator
-        }
-    })
-})
-
-// This is what happens when the equal sign button is pushed
-function operate(num1, operator, num2,){
-    if(operator === '+'){
-        add(num1,num2)
-
-    } else if(operator === '-'){
-        subtract(num1,num2)
-
-    } else if(operator === '*'){
-        multiply(num1,num2)
-
-    } else if(operator === '/'){
-        divide(num1,num2)
-
-    } else{
-        return "Error: Invalid Operation"
-    }
-}
-
 //Selects all the buttons with the class 'number-buttons'
 let numberButtons = document.querySelectorAll('.number-buttons')
 
@@ -71,3 +41,50 @@ numberButtons.forEach(function(button) {
         }
     })
 })
+
+operationButtons.forEach(function(button) {
+    button.addEventListener('click', function(){
+        //Checks the operation sign within the innerText of each button and assigns the operation to the operator variable which gets added in the display innerText
+        if(button.innerText === '+'){
+            operator = button.innerText
+            display.innerText+=operator
+        } else if(button.innerText === '-'){
+            operator = button.innerText
+            display.innerText+=operator
+        } else if(button.innerText === '/'){
+            operator = button.innerText
+            display.innerText+=operator
+        } else if(button.innerText === '*'){
+            operator = button.innerText
+            display.innerText+=operator
+        } else {
+            return
+        }
+    })
+})
+
+// This is what happens when the equal sign button is pushed
+function operate(num1, operation, num2,){
+    firstNumber = num1
+    secondNumber = num2
+    operator = operation
+    if(operation === '+'){
+        add(num1,num2)
+
+    } else if(operation === '-'){
+        console.log(subtract(num1,num2))
+
+    } else if(operation === '*'){
+        multiply(num1,num2)
+
+    } else if(operation === '/'){
+        divide(num1,num2)
+
+    } else{
+        return "Error: Invalid Operation"
+    }
+}
+
+let equalSign = document.querySelector('.equal-sign')
+
+equalSign.addEventListener('click', operate)
