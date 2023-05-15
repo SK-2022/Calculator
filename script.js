@@ -119,3 +119,19 @@ clearButton.addEventListener('click', function(){
     operator = ""
     display.innerText = 0
 })
+
+//TOGGLE BUTTON
+let toggleSignButton = document.querySelector('.toggle-sign')
+
+toggleSignButton.addEventListener('click', function() {
+  // check if the number is positive or negative
+  if ( parseInt(firstNumber) >= 0) {
+    // if the number is positive, make it negative by multiplying it by -1
+    firstNumber *= -1
+  } else {
+    // if the number is negative, make it positive by multiplying it by -1
+    firstNumber *= -1
+  }
+  // update the display with the new number
+  display.innerText = firstNumber
+})
