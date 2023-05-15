@@ -42,6 +42,11 @@ numberButtons.forEach(function(button) {
         //Quotes are for spaces
             display.innerText = firstNumber + " " + operator + " " + secondNumber
         }
+        let maximum = 13
+        if(display.innerText.length > maximum){
+            let length = display.innerText.substring(0, 13); // Deletes all characters above 13
+            display.innerText = length
+        }
     })
 })
 
@@ -107,6 +112,12 @@ function operate(num1, operation, num2){
 
     } else{
         display.innerText = "Error"
+    }
+
+    let maximum = 13
+    if(display.innerText.length > maximum){
+        let length = display.innerText.substring(0, 13); // Deletes all characters above 13
+        display.innerText = length
     }
 }
 
