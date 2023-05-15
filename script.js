@@ -106,7 +106,7 @@ function operate(num1, operation, num2){
         operator = ""
 
     } else{
-        display.innerText = "Error: Invalid Operation"
+        display.innerText = "Error"
     }
 }
 
