@@ -1,18 +1,18 @@
 //Basic operations of the calculator
 function add(num1,num2) {
-    return parseInt(num1) + parseInt(num2)
+    return parseFloat(num1) + parseFloat(num2)
 }
 
 function subtract(num1, num2) {
-    return parseInt(num1) - parseInt(num2)
+    return parseFloat(num1) - parseFloat(num2)
 }
 
 function multiply(num1, num2) {
-    return parseInt(num1) * parseInt(num2)
+    return parseFloat(num1) * parseFloat(num2)
 }
 
 function divide(num1, num2) {
-    return parseInt(num1) / parseInt(num2)
+    return parseFloat(num1) / parseFloat(num2)
 }
 
 //These must be strings to allow us to have more than one digit numbers
@@ -81,25 +81,26 @@ function operate(num1, operation, num2){
     num2 = secondNumber
     //Resets the operator and second number when the equal sign is clicked. Also shows the answer on the display as the new first number
     if(operator === '+'){
-        display.innerText = add(firstNumber,secondNumber)
+        //to Fixed ensures answers are to 1 decimal place
+        display.innerText = (add(firstNumber,secondNumber)).toFixed(1)
         firstNumber = display.innerText
         secondNumber = ""
         operator = ""
 
     } else if(operator === '-'){
-        display.innerText = subtract(firstNumber,secondNumber)
+        display.innerText = (subtract(firstNumber,secondNumber)).toFixed(1)
         firstNumber = display.innerText
         secondNumber = ""
         operator = ""
 
     } else if(operator === '*'){
-        display.innerText = multiply(firstNumber,secondNumber)
+        display.innerText = (multiply(firstNumber,secondNumber)).toFixed(1)
         firstNumber = display.innerText
         secondNumber = ""
         operator = ""
 
     } else if(operator === '/'){
-        display.innerText = divide(firstNumber,secondNumber)
+        display.innerText = (divide(firstNumber,secondNumber)).toFixed(1)
         firstNumber = display.innerText
         secondNumber = ""
         operator = ""
@@ -125,7 +126,7 @@ let toggleSignButton = document.querySelector('.toggle-sign')
 
 toggleSignButton.addEventListener('click', function() {
   // check if the number is positive or negative
-  if ( parseInt(firstNumber) >= 0) {
+  if ( parseFloat(firstNumber) >= 0) {
     // if the number is positive, make it negative by multiplying it by -1
     firstNumber *= -1
   } else {
