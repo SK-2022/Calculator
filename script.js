@@ -26,6 +26,8 @@ let operationButtons = document.querySelectorAll('.operations')
 let display = document.querySelector('.display')
 //Selects all the buttons with the class 'number-buttons'
 let numberButtons = document.querySelectorAll('.number-buttons')
+//Selects the clear button
+let clearButton = document.querySelector('.clear-button')
 
 numberButtons.forEach(function(button) {
     button.addEventListener("click", function(){
@@ -77,6 +79,7 @@ function operate(num1, operation, num2){
     num1 = firstNumber
     operation = operator
     num2 = secondNumber
+    //Resets the operator and second number when the equal sign is clicked. Also shows the answer on the display as the new first number
     if(operator === '+'){
         display.innerText = add(firstNumber,secondNumber)
         firstNumber = display.innerText
@@ -109,3 +112,10 @@ function operate(num1, operation, num2){
 let equalSign = document.querySelector('.equal-sign')
 
 equalSign.addEventListener('click', operate)
+
+clearButton.addEventListener('click', function(){
+    secondNumber = ""
+    firstNumber = ""
+    operator = ""
+    display.innerText = 0
+})
