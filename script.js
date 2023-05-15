@@ -61,11 +61,11 @@ operationButtons.forEach(function(button) {
             operator = button.innerText
             display.innerText = display.innerText + " " + operator
 
-        } else if(button.innerText === '/'){
+        } else if(button.innerText === '÷'){
             operator = button.innerText
             display.innerText = display.innerText + " " + operator
 
-        } else if(button.innerText === '*'){
+        } else if(button.innerText === '×'){
             operator = button.innerText
             display.innerText = display.innerText + " " + operator
 
@@ -93,13 +93,13 @@ function operate(num1, operation, num2){
         secondNumber = ""
         operator = ""
 
-    } else if(operator === '*'){
+    } else if(operator === '×'){
         display.innerText = (multiply(firstNumber,secondNumber)).toFixed(1)
         firstNumber = display.innerText
         secondNumber = ""
         operator = ""
 
-    } else if(operator === '/'){
+    } else if(operator === '÷'){
         display.innerText = (divide(firstNumber,secondNumber)).toFixed(1)
         firstNumber = display.innerText
         secondNumber = ""
