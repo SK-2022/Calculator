@@ -46,20 +46,28 @@ numberButtons.forEach(function(button) {
 operationButtons.forEach(function(button) {
     button.addEventListener('click', function(){
         //Checks the operation sign within the innerText of each button and assigns the operation to the operator variable which gets added in the display innerText
-        if(button.innerText === '+'){
+        if (operator !== "" && secondNumber !== "") {
+            operate(firstNumber, operator, secondNumber)
             operator = button.innerText
-            display.innerText+=operator
+            display.innerText = firstNumber + " " + operator
+            secondNumber = ""
+        } else if(button.innerText === '+'){
+            operator = button.innerText
+            display.innerText = display.innerText + " " + operator
+
         } else if(button.innerText === '-'){
             operator = button.innerText
-            display.innerText+=operator
+            display.innerText = display.innerText + " " + operator
+
         } else if(button.innerText === '/'){
             operator = button.innerText
-            display.innerText+=operator
+            display.innerText = display.innerText + " " + operator
+
         } else if(button.innerText === '*'){
             operator = button.innerText
-            display.innerText+=operator
+            display.innerText = display.innerText + " " + operator
+
         } else {
-            return
         }
     })
 })
@@ -70,18 +78,31 @@ function operate(num1, operation, num2){
     operation = operator
     num2 = secondNumber
     if(operator === '+'){
-        console.log(add(firstNumber,secondNumber))
+        display.innerText = add(firstNumber,secondNumber)
+        firstNumber = display.innerText
+        secondNumber = ""
+        operator = ""
+
     } else if(operator === '-'){
-        console.log(subtract(firstNumber,secondNumber))
+        display.innerText = subtract(firstNumber,secondNumber)
+        firstNumber = display.innerText
+        secondNumber = ""
+        operator = ""
 
     } else if(operator === '*'){
-        console.log(multiply(firstNumber,secondNumber))
+        display.innerText = multiply(firstNumber,secondNumber)
+        firstNumber = display.innerText
+        secondNumber = ""
+        operator = ""
 
     } else if(operator === '/'){
-        console.log(divide(firstNumber,secondNumber))
+        display.innerText = divide(firstNumber,secondNumber)
+        firstNumber = display.innerText
+        secondNumber = ""
+        operator = ""
 
     } else{
-        console.log("Error: Invalid Operation")
+        display.innerText = "Error: Invalid Operation"
     }
 }
 
