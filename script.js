@@ -1,24 +1,24 @@
 //Basic operations of the calculator
 function add(num1,num2) {
-    return num1 + num2
+    return parseInt(num1) + parseInt(num2)
 }
 
 function subtract(num1, num2) {
-    return num1 - num2
+    return parseInt(num1) - parseInt(num2)
 }
 
 function multiply(num1, num2) {
-    return num1 * num2
+    return parseInt(num1) * parseInt(num2)
 }
 
 function divide(num1, num2) {
-    return num1 / num2
+    return parseInt(num1) / parseInt(num2)
 }
 
-//These are the variables that must be stored
-let firstNumber
-let operator
-let secondNumber
+//These must be strings to allow us to have more than one digit numbers
+let firstNumber = ""
+let operator = ""
+let secondNumber = ""
 
 //Selects all buttons with the class 'operations'.
 let operationButtons = document.querySelectorAll('.operations')
@@ -30,14 +30,15 @@ let numberButtons = document.querySelectorAll('.number-buttons')
 numberButtons.forEach(function(button) {
     button.addEventListener("click", function(){
 
-        //The following code checks to see if the first number has been assigned to a value.If it hasn't, it will be assigned the value of button.innerText, if not then it will move on to the next conditional statement.
-        if( typeof(firstNumber) === 'undefined'){
-            firstNumber = button.innerText
-            display.innerText+=firstNumber
-            //If firstNumber is no longer empty, i.e is now has a value attached to it, then we must assign secondNumber the value of button.innerText
-        } else if( typeof(firstNumber) !== 'undefined' ){
-            secondNumber = button.innerText
-            display.innerText+=secondNumber
+        //If there is no operator, then assign the clicked numbers as the first numbers
+        if( operator === ""){
+            firstNumber+= button.innerText
+            display.innerText = firstNumber
+        //If an operator is present then assign the second number
+        } else {
+            secondNumber+= button.innerText
+        //Quotes are for spaces
+            display.innerText = firstNumber + " " + operator + " " + secondNumber
         }
     })
 })
